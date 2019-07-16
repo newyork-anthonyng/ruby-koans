@@ -13,7 +13,23 @@
 # and
 #   about_triangle_project_2.rb
 #
+def hasPositiveIntegerSides(a, b, c)
+  a > 0 && b > 0 && c > 0
+end
+
+def hasValidSides(a, b, c)
+  ((a + b) > c) && ((b + c) > a) && ((a + c) > b)
+end
+
 def triangle(a, b, c)
+  if !hasPositiveIntegerSides a, b, c
+    raise TriangleError
+  end
+
+  if !hasValidSides a, b, c
+    raise TriangleError
+  end
+
   # WRITE THIS CODE
   if a == b && b == c
     :equilateral
